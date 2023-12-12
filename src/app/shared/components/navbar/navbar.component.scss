@@ -1,0 +1,18 @@
+.nav {
+    display: flex;
+    background: black;
+    justify-content: space-between;
+    padding: 0rem 2rem 0rem 2rem;
+    list-style: none;
+    height: 4rem;
+    align-items: center;
+    li {
+    
+        color: White;
+    }
+
+    li:hover {
+        color: red;
+        cursor: pointer;
+    }
+}
