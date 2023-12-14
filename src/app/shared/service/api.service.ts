@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  apiUrl = `https://google.com/`
+  apiUrl = ``
   constructor(private _httpClient: HttpClient) { }
 
   getMovies(): Observable<any> {
