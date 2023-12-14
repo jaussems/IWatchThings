@@ -1,7 +1,24 @@
 .home {
+    
 
+}
+.movies {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    gap: 4rem;
+}
 
-    background-color: aquamarine;
-
-
+.movie {
+    width: 20rem;
+    img {
+        height: 20rem;
+        width: 20rem;
+    }
+    h1 {
+        overflow: inherit;
+        text-overflow: ellipsis;
+    }
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
