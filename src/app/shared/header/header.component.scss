@@ -1,0 +1,35 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.25rem 1rem;
+    height: 5rem;
+    background-color: Black;
+    align-items: center;
+    li {
+        list-style-type: none;
+        color:white;
+    }
+
+    &_search {
+        border-radius: 1rem;
+        width: 10%;
+        height: 2rem;
+        border: transparent;
+
+        &:focus {
+            outline: none;
+            transition: 0.7s;
+            width: 12.5%;
+
+        }
+    }
+
+    a, a:visited, a:hover, a:active {
+        color: inherit;
+      }
+
+      a:active {
+        color: red;
+      }
+}
