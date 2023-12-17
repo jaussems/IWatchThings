@@ -2,12 +2,22 @@
     
 
 }
+
+.filter-options {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
 .movies {
-   
     display: flex;
     flex-wrap:wrap;
     justify-content: space-between;
     gap: 4rem;
+}
+
+
+.filter {
+    padding-bottom: 1.5rem;
 }
 
 .movie {

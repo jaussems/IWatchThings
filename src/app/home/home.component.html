@@ -1,6 +1,18 @@
 <main>
     <div class="home">
         <h1>This is the home page</h1>
+        <div class="filter-options">
+        <div class="dropdown">
+                <select name="filter-options" id="movie-filter">
+                    <option selected="true">---</option>
+                    <option value="name ascending">by Name ASC</option>
+                    <option value="name descending">by Name DESC</option>
+                    <option value="date">by date </option>
+                    <option value="rating">by rating</option>
+                </select>
+        </div>
+        <app-switch-btn label="Test" [formGroup]="formGroup"></app-switch-btn>
+    </div>
             <div class="movies">
         @for( movie of results$?.results; track movie.id) {
          

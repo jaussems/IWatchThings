@@ -1,0 +1,8 @@
+<label class="switch">
+    <form  [formControl]="toggleControl">
+    <p class="switch-label">{{label}}</p>
+    
+    <input type="checkbox" (onToggle)="onToggle" >
+    <span class="slider round"></span>
+</form>
+  </label>
