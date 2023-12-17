@@ -17,7 +17,7 @@ export interface Result {
     mediaType:        MediaType;
     genreIDS:         number[];
     popularity:       number;
-    releaseDate:      Date;
+    release_date:      Date;
     video:            boolean;
     voteAverage:      number;
     voteCount:        number;

@@ -3,11 +3,13 @@
         <h1>This is the home page</h1>
             <div class="movies">
         @for( movie of results$?.results; track movie.id) {
-            <div class="movie">
+         
+            <div class="movie" (click)="navigateMovie(movie.id)">
+                <img [src]="getPoster(movie.poster_path)" loading="lazy" />
                 <h1>{{movie.title}}</h1>
-                <img [src]="getPoster(movie.poster_path)" />
-            
+               <p>Release year {{movie?.release_date}}</p >
             </div>
+       
         }
     </div>
     </div>
