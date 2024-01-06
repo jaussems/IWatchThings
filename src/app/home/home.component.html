@@ -1,21 +1,23 @@
 <main>
     <div class="home">
-        <h1>This is the home page</h1>
-        <div class="filter-options">
+        <div class="sort">
         <div class="dropdown">
-                <select name="filter-options" id="movie-filter">
+            <form [formGroup]="sortFormGroup">
+                <p>Filter by</p>
+                <select name="filter-options" id="movie-filter" formControlName="sortingFilter">
                     <option selected="true">---</option>
-                    <option value="name ascending">by Name ASC</option>
-                    <option value="name descending">by Name DESC</option>
-                    <option value="date">by date </option>
-                    <option value="rating">by rating</option>
+                    <option value="name ascending"> Name ASC</option>
+                    <option value="name descending"> Name DESC</option>
+                    <option value="date ascending"> date ascending </option>
+                    <option value="date descending"> date descending </option>
+                    <option value="rating"> rating</option>
                 </select>
+            </form>
         </div>
-        <app-switch-btn label="Test" [formGroup]="formGroup"></app-switch-btn>
+        <app-tabdivider (select)="toggleDataType()" ></app-tabdivider>
     </div>
             <div class="movies">
         @for( movie of results$?.results; track movie.id) {
-         
             <div class="movie" (click)="navigateMovie(movie.id)">
                 <img [src]="getPoster(movie.poster_path)" loading="lazy" />
                 <h1>{{movie.title}}</h1>

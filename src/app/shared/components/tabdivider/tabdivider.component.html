@@ -1,0 +1,4 @@
+<div class="tabrow">
+    <p class="tab" [ngClass]="!isSelected ? 'selected' : '' " (click)="toggleSelected()">Movies</p>
+    <p class="tab" [ngClass]="isSelected ? 'selected' : '' " (click)="toggleSelected()">Tv</p>
+</div>

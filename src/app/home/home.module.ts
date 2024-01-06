@@ -3,6 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { SwitchBtnComponent } from '../shared/components/switch-btn/switch-btn.component';
+import { TabdividerComponent } from '../shared/components/tabdivider/tabdivider.component';
 
 
 
@@ -12,6 +13,7 @@ import { SwitchBtnComponent } from '../shared/components/switch-btn/switch-btn.c
     CommonModule,
     HomeRoutingModule, 
     SwitchBtnComponent,
+    TabdividerComponent,
     NgOptimizedImage
   ]
 })

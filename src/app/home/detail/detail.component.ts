@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ApiService } from '../../shared/service/api.service';
-import { Movie, Result } from '../../shared/models/apiModels';
+import { Movie, MovieDetails, Result } from '../../shared/models/apiModels';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { Movie, Result } from '../../shared/models/apiModels';
   styleUrl: './detail.component.scss'
 })
 export class DetailComponent implements OnInit {
-details$?: Result
+details$?: MovieDetails
 
 constructor(
   private route: ActivatedRoute,
