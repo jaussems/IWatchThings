@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
     search : new FormControl<String>('')
   })
   
-  
   get formInput(): FormControl {
     return this.inputForm.controls.search as FormControl
   }
@@ -43,12 +42,13 @@ export class HomeComponent implements OnInit {
         return value.title.includes(`${searchValue}`)
       }) || []
 
-      if(this.results$ && filtered.length > 1)
+      if(this.results$ && searchValue)
       {
         this.results$.results = filtered;
-        console.log(`Results updated: ${this.results$.results}`)
       }
-     
+      else {
+          this.apiService.getMovies().subscribe((value) => this.results$ = value)
+      }
     })
 
   }
@@ -58,67 +58,12 @@ export class HomeComponent implements OnInit {
     search: new FormControl("")
   })
 
-  setSearch(text: String) {
-    this.formGroup.controls["search"].patchValue(text);
-  }
-
-  
-  
-  toggle() {
-    this.formGroup.controls['toggle'].setValue(!this.formGroup.controls['toggle'].value)
-  }
+ 
   
   ngOnInit(): void {
-    this.getMovies()
-
-    this.sortFormGroup.controls.sortingFilter.valueChanges.subscribe((value : any) => {
-      switch (value) {
-          case "name ascending" : {
-            if(this.isSelected)
-            {
-              this.results$?.results.sort((a,b ) => {
-                return this.sortByTitleAscending(a , b)
-              })
-            }
-            else {
-              this.results$?.results.sort((a,b) => {
-                return this.sortByNameOrFallbackASC(a, b)
-              })
-            }
-          }
-          break;
-          case "name descending" : {
-            if(this.isSelected)
-            {
-              this.results$?.results.sort((a,b ) => {
-                return this.sortByTitleDescending(a , b)
-              })
-            }
-          
-            else {
-              this.results$?.results.sort((a,b) => {
-                return this.sortByNameOrFallbackDESC(a, b)
-              })
-            }
-          }
-          break;
-            case "date ascending" : {
-              this.results$?.results.sort((a, b) => (b.release_date < a.release_date ? 1 : -1))
-          }
-          break;
-          case "date descending" : {
-            this.results$?.results.sort((a, b) => (a.release_date < b.release_date ? 1 : -1))
-          }
-          break;
-          case "rating" :  {
-            this.results$?.results.sort((a, b) => a.popularity - b.popularity )
-          }
-          break;
-          // TODO Fix reset value to previous default value
-          default : ""
-      }
-      console.log(`Value Changes sorting Filter: ${value}`)
-    })
+    this.getMovies();
+    this.sortByFilter();
+    this.searchChange();
   }
   
   getMovies() {
@@ -140,6 +85,13 @@ export class HomeComponent implements OnInit {
     this.isSelected ?  this.getMovies() : this.getTvSeries()
   }
 
+  setSearch(text: String) {
+    this.formGroup.controls["search"].patchValue(text);
+  }
+  
+  toggle() {
+    this.formGroup.controls['toggle'].setValue(!this.formGroup.controls['toggle'].value)
+  }
 
   navigateMovie(movieId: Number) {
     this.router.navigateByUrl(`home/detail/${movieId}`)
@@ -171,6 +123,55 @@ export class HomeComponent implements OnInit {
     } else {
         return a.name ? -1 : 1;
     }
+}
+sortByFilter() {
+  this.sortFormGroup.controls.sortingFilter.valueChanges.subscribe((value : any) => {
+    switch (value) {
+        case "name ascending" : {
+          if(this.isSelected)
+          {
+            this.results$?.results.sort((a,b ) => {
+              return this.sortByTitleAscending(a , b)
+            })
+          }
+          else {
+            this.results$?.results.sort((a,b) => {
+              return this.sortByNameOrFallbackASC(a, b)
+            })
+          }
+        }
+        break;
+        case "name descending" : {
+          if(this.isSelected)
+          {
+            this.results$?.results.sort((a,b ) => {
+              return this.sortByTitleDescending(a , b)
+            })
+          }
+        
+          else {
+            this.results$?.results.sort((a,b) => {
+              return this.sortByNameOrFallbackDESC(a, b)
+            })
+          }
+        }
+        break;
+          case "date ascending" : {
+            this.results$?.results.sort((a, b) => (b.release_date < a.release_date ? 1 : -1))
+        }
+        break;
+        case "date descending" : {
+          this.results$?.results.sort((a, b) => (a.release_date < b.release_date ? 1 : -1))
+        }
+        break;
+        case "rating" :  {
+          this.results$?.results.sort((a, b) => a.popularity - b.popularity )
+        }
+        break;
+        // TODO Fix reset value to previous default value
+        default : ""
+    }
+  })
 }
 
 
