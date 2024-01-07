@@ -1,3 +1,5 @@
+@import '../../../../styles/variables.scss';
+
 .tabrow {
     display: flex;
     flex-direction: row;
@@ -6,6 +8,10 @@
 
 .tab {
    background: none;
+   border: 1px solid white;
+   border-radius: 8px;
+   color: white;
+   padding: 0.5rem;
   transition: background-size 400ms;
 }
 
@@ -14,14 +20,9 @@
 }
 
 .selected {
-    background: 
-    linear-gradient(to right, rgba(100, 200, 200, 1), rgba(100, 200, 200, 1)),
-    linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1));
-    background-size: 100% 0.1em, 0 0.1em;
-  background-position: 100% 100%, 0 100%;
-  background-repeat: no-repeat;
     transform: 0.4s;
     transition: background-size 400ms;
-
+    background-color: #000000;
+    color: $primary_color;
     background-size: 0 0.1em, 100% 0.1em;
 }

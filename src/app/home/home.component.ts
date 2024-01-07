@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { SwitchBtnComponent } from '../shared/components/switch-btn/switch-btn.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TabdividerComponent } from '../shared/components/tabdivider/tabdivider.component';
+import { SpinnerComponent } from '../shared/components/spinner/spinner.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SwitchBtnComponent, TabdividerComponent, ReactiveFormsModule],
+  imports: [SwitchBtnComponent, TabdividerComponent, ReactiveFormsModule, SpinnerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -37,7 +38,6 @@ export class HomeComponent implements OnInit {
     // Op basis van wat ga ik filteren? 
     //
     
-    let defaultValue = this.results$?.results
     this.inputForm.controls.search.valueChanges.subscribe((searchValue) => {
      let filtered = this.results$?.results.filter((value) => {
         return value.title.includes(`${searchValue}`)
