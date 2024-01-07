@@ -22,9 +22,45 @@ export class HomeComponent implements OnInit {
     sortingFilter : new FormControl("")
   })
 
-  formGroup: FormGroup = new FormGroup({
-    toggle: new FormControl(false)
+  inputForm = new FormGroup({
+    search : new FormControl<String>('')
   })
+  
+  
+  get formInput(): FormControl {
+    return this.inputForm.controls.search as FormControl
+  }
+
+  searchChange() {
+    // Wat heb ik nodig ? : Input value die ingetyped wordt en de lijst met huidige films
+    // Wat ga ik updaten? Als de lijst met huidige films en hun titel overeenkomen met de zoekterm
+    // Op basis van wat ga ik filteren? 
+    //
+    
+    let defaultValue = this.results$?.results
+    this.inputForm.controls.search.valueChanges.subscribe((searchValue) => {
+     let filtered = this.results$?.results.filter((value) => {
+        return value.title.includes(`${searchValue}`)
+      }) || []
+
+      if(this.results$ && filtered.length > 1)
+      {
+        this.results$.results = filtered;
+        console.log(`Results updated: ${this.results$.results}`)
+      }
+     
+    })
+
+  }
+
+  formGroup: FormGroup = new FormGroup({
+    toggle: new FormControl(false),
+    search: new FormControl("")
+  })
+
+  setSearch(text: String) {
+    this.formGroup.controls["search"].patchValue(text);
+  }
 
   
   

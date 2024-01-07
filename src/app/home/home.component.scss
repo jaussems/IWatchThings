@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
 .home {
     color: #e28743;
     background: #111;
@@ -10,13 +12,37 @@
     justify-content: space-evenly;
     
 }
+
+.searchtext {
+    color:#e28743
+}
 .movies {
     display: flex;
     flex-wrap:wrap;
     justify-content: space-between;
     gap: 4rem;
+
+    @include media($sm, $md) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
 }
 
+.search {
+    border-radius: 1rem;
+    width: 10%;
+    height: 2rem;
+    border: transparent;
+
+    &:focus {
+        border: red;
+        align-self: center;
+        outline: yellow;
+        transition: 0.7s;
+    }
+}
 
 .filter {
     padding-bottom: 1.5rem;

@@ -1,5 +1,10 @@
 <main>
     <div class="home">
+        <div [formGroup]="inputForm">
+            <input class="search"placeholder="search" formControlName="search" (change)="searchChange()"  />
+            <p class="searchtext">{{inputForm.controls.search.value}}</p>
+        </div>
+     
         <div class="sort">
         <div class="dropdown">
             <form [formGroup]="sortFormGroup">
@@ -20,8 +25,8 @@
         @for( movie of results$?.results; track movie.id) {
             <div class="movie" (click)="navigateMovie(movie.id)">
                 <img [src]="getPoster(movie.poster_path)" loading="lazy" />
-                <h1>{{movie.title}}</h1>
-               <p>Release year {{movie?.release_date}}</p >
+                <h1>{{movie.title}} {{movie.name}}</h1>
+               <p>Release year {{movie?.release_date}} </p >
             </div>
        
         }
