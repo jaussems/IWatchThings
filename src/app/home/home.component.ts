@@ -41,26 +41,27 @@ export class HomeComponent implements OnInit {
      let filtered = this.results$?.results.filter((value) => {
       if(this.isSelected)
         {
-          return value.title.includes(`${searchValue}`)
+          return value.title.toLowerCase().includes(`${searchValue?.toLowerCase()}`)
         }
         else {
-          return value.name?.includes(`${searchValue}`)
+          return value.name?.toLowerCase().includes(`${searchValue?.toLowerCase()}`)
         }
 
       }) || []
 
-
-
-
       if(this.results$ && searchValue)
       {
-
-        
         this.results$.results = filtered;
       }
       else {
+        if(this.isSelected)
+        {
           this.apiService.getMovies().subscribe((value) => this.results$ = value)
-      }
+        }
+        else {
+          this.apiService.getTVSeries().subscribe((value) => this.results$ = value)
+        }
+        }
     })
 
   }
