@@ -83,7 +83,7 @@ export class HomeComponent implements OnInit {
     this.apiService.getMovies().subscribe((data: Movie) => {
       this.results$  = data
     })
-    console.log(this.results$?.results[0].release_date.getFullYear)
+    //console.log(this.results$?.results[0].release_date.getFullYear)
   }
 
 

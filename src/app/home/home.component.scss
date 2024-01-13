@@ -30,19 +30,51 @@
 }
 
 .search {
-    border-radius: 1rem;
-    width: 10%;
-    height: 2rem;
-    border: transparent;
-
-    &:focus {
-        border: red;
-        align-self: center;
-        outline: yellow;
-        transition: 0.7s;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    &__input {
+        border-radius: 1rem;
+        width: 10%;
+        height: 2rem;
+        border: transparent;
+    
+        &:focus {
+            border: red;
+            align-self: center;
+            outline: yellow;
+            transition: 0.7s;
+        }
     }
+    input::placeholder {
+        padding-left: 0.5rem;
+    }
+    input::content {
+        padding-left: 0.5rem;
+    }
+
+    input {
+        padding-left: 25px;
+        background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left;
+        background-size: 20px;
+        background-color: white;
+    }
+    input:focus {
+        border: 3px solid $primary-color;;
+    }
+    &::content {
+        content: icon;
+    }
+
+ 
 }
 
+
+.icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
 .sort {
     display: flex;

@@ -2,10 +2,15 @@
     <div class="home">
         @defer() 
         {
-        <div [formGroup]="inputForm">
-            <input class="search"placeholder="search" formControlName="search"  />
+        <div [formGroup]="inputForm" class="search">
+            <!-- //<label for="search__input" class="placeholder">Search</label> -->
+            <i class="fa-solid fa-magnifying-glass icon"></i>
+    
+            <input class="search__input"  formControlName="search" placeholder="search"  />
+           
         </div>
-     
+    
+        
         <div class="sort">
         <div class="dropdown">
             <form [formGroup]="sortFormGroup">
@@ -27,6 +32,7 @@
             <div class="movie__card" (click)="navigateMovie(movie.id)">
                 <img class="movie__image" [src]="getPoster(movie.poster_path)" loading="lazy" />
                 <h1 class="movie__header">{{movie.title}} {{movie.name}}</h1>
+                <!-- needs pipe to transform data to readable String -->
                <p>Release year {{movie?.release_date}} </p >
             </div>
         } 
