@@ -4,13 +4,12 @@
     color: #e28743;
     background: #111;
     padding:2rem;
+    background-size: cover;
 
 }
 
-.filter-options {
-    display: flex;
-    justify-content: space-evenly;
-    
+.filter {
+    padding-bottom: 1.5rem;
 }
 
 .searchtext {
@@ -44,9 +43,6 @@
     }
 }
 
-.filter {
-    padding-bottom: 1.5rem;
-}
 
 .sort {
     display: flex;
@@ -56,37 +52,38 @@
 }
 
 .movie {
-    width: 15rem;
-    background: white;
-    border-radius: 0.25rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-    img {
-        height: 20rem;
-        width: 20rem;
-        vertical-align: middle;
-        height: auto;
-        width: auto;
-        max-inline-size: 100%;
-        block-size: auto;
-
-    }
-    h1 {
-        overflow: inherit;
+    &__card {
+        width: 15rem;
+        background: white;
+        border-radius: 0.25rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        transition: 0.5s;
+        &__image {
+            img {
+                height: 20rem;
+                width: 20rem;
+                vertical-align: middle;
+                height: auto;
+                width: auto;
+                max-inline-size: 100%;
+                block-size: auto;
+        
+            }
+        }
+        &__header {
+            overflow: inherit;
         text-overflow: ellipsis;
-    
-    }
-    padding: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    transition: 0.5s;
-
-    &:hover {
-        transform: translateY(-20px);
-        cursor: pointer;
-
+        }
+        &:hover {
+            transform: translateY(-20px);
+            cursor: pointer;
+        }
     }
 }
+
 

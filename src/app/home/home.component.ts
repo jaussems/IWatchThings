@@ -39,11 +39,23 @@ export class HomeComponent implements OnInit {
     
     this.inputForm.controls.search.valueChanges.subscribe((searchValue) => {
      let filtered = this.results$?.results.filter((value) => {
-        return value.title.includes(`${searchValue}`)
+      if(this.isSelected)
+        {
+          return value.title.includes(`${searchValue}`)
+        }
+        else {
+          return value.name?.includes(`${searchValue}`)
+        }
+
       }) || []
+
+
+
 
       if(this.results$ && searchValue)
       {
+
+        
         this.results$.results = filtered;
       }
       else {
