@@ -3,20 +3,15 @@
         @defer() 
         {
         <div [formGroup]="inputForm" class="search">
-            <!-- //<label for="search__input" class="placeholder">Search</label> -->
-            <i class="fa-solid fa-magnifying-glass icon"></i>
-    
             <input class="search__input"  formControlName="search" placeholder="search"  />
-           
         </div>
     
         
         <div class="sort">
         <div class="dropdown">
             <form [formGroup]="sortFormGroup">
-                <p>Filter by</p>
-                <select name="filter" id="movie-filter" formControlName="sortingFilter">
-                    <option selected="true">---</option>
+                <select class="filter" name="filter" id="movie-filter" formControlName="sortingFilter">
+                    <option selected="true" disabled>---</option>
                     <option value="name ascending"> Name ASC</option>
                     <option value="name descending"> Name DESC</option>
                     <option value="date ascending"> date ascending </option>
@@ -34,6 +29,11 @@
                 <h1 class="movie__header">{{movie.title}} {{movie.name}}</h1>
                 <!-- needs pipe to transform data to readable String -->
                <p>Release year {{movie?.release_date}} </p >
+                <div class="movie__rating">
+                    <i class="fa-solid fa-star"></i>
+                    <p>{{movie?.vote_average?.toFixed(1)}}</p>
+                </div>
+                <button class="movie__like-btn"><i class="fa-solid fa-heart"></i></button>
             </div>
         } 
     </div>

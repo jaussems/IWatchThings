@@ -19,7 +19,7 @@ export interface Result {
     popularity:       number;
     release_date:      Date;
     video:            boolean;
-    voteAverage:      number;
+    vote_average:      number;
     voteCount:        number;
     name?: string;
 }
