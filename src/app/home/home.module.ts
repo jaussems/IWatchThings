@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
+import { SwitchBtnComponent } from '../shared/components/switch-btn/switch-btn.component';
+import { TabdividerComponent } from '../shared/components/tabdivider/tabdivider.component';
 
 
 
@@ -10,6 +12,9 @@ import { HomeRoutingModule } from './home-routing.module';
   imports: [
     CommonModule,
     HomeRoutingModule, 
+    SwitchBtnComponent,
+    TabdividerComponent,
+    NgOptimizedImage
   ]
 })
 export class HomeModule { }

@@ -1,0 +1,28 @@
+@import '../../../../styles/variables.scss';
+
+.tabrow {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.tab {
+   background: none;
+   border: 1px solid white;
+   border-radius: 8px;
+   color: white;
+   padding: 0.5rem;
+  transition: background-size 400ms;
+}
+
+.tab:hover {
+  cursor: pointer;
+}
+
+.selected {
+    transform: 0.4s;
+    transition: background-size 400ms;
+    background-color: #000000;
+    color: $primary_color;
+    background-size: 0 0.1em, 100% 0.1em;
+}

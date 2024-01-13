@@ -1,24 +1,149 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
 .home {
-    
+    color: #e28743;
+    background: #111;
+    padding:2rem;
+    background-size: cover;
 
+}
+
+.filter {
+    padding-bottom: 1.5rem;
+}
+
+.searchtext {
+    color:#e28743
 }
 .movies {
     display: flex;
     flex-wrap:wrap;
     justify-content: space-between;
     gap: 4rem;
+
+    @include media($sm, $md) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+}
+
+.filter {
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid var(--select-border);
+    border-radius: 1rem;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #e28743;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    &__input {
+        border-radius: 1rem;
+        width: 50%;
+        border: transparent;
+        height: 3rem;
+    
+        &:focus {
+            border: red;
+            align-self: center;
+            outline: yellow;
+            transition: 0.7s;
+        }
+    }
+    input::placeholder {
+        padding-left: 0.5rem;
+    }
+    input::content {
+        padding-left: 0.5rem;
+    }
+
+    input {
+        padding-left: 25px;
+        background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left;
+        background-size: 20px;
+        background-color: white;
+    }
+    input:focus {
+        border: 3px solid $primary-color;;
+    }
+    &::content {
+        content: icon;
+    }
+
+ 
+}
+
+
+.icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.sort {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .movie {
-    width: 20rem;
-    img {
-        height: 20rem;
-        width: 20rem;
-    }
-    h1 {
-        overflow: inherit;
+    &__card {
+        width: 15rem;
+        background: white;
+        border-radius: 0.25rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        transition: 0.5s;
+        &__image {
+            img {
+                height: 20rem;
+                width: 20rem;
+                vertical-align: middle;
+                height: auto;
+                width: auto;
+                max-inline-size: 100%;
+                block-size: auto;
+        
+            }
+        }
+        &__header {
+            overflow: inherit;
         text-overflow: ellipsis;
+        }
+        &:hover {
+            transform: translateY(-20px);
+            cursor: pointer;
+        }
     }
-    padding: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    &__like-btn {
+        background: transparent;
+        border: 2px solid red;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__rating {
+        display: flex;
+        gap: 0.5rem;        
+    }
 }
+
+

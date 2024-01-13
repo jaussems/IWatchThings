@@ -1,14 +1,44 @@
 <main>
     <div class="home">
-        <h1>This is the home page</h1>
+        @defer() 
+        {
+        <div [formGroup]="inputForm" class="search">
+            <input class="search__input"  formControlName="search" placeholder="search"  />
+        </div>
+    
+        
+        <div class="sort">
+        <div class="dropdown">
+            <form [formGroup]="sortFormGroup">
+                <select class="filter" name="filter" id="movie-filter" formControlName="sortingFilter">
+                    <option selected="true" disabled>---</option>
+                    <option value="name ascending"> Name ASC</option>
+                    <option value="name descending"> Name DESC</option>
+                    <option value="date ascending"> date ascending </option>
+                    <option value="date descending"> date descending </option>
+                    <option value="rating"> rating</option>
+                </select>
+            </form>
+        </div>
+        <app-tabdivider (select)="toggleDataType()" ></app-tabdivider>
+    </div>
             <div class="movies">
         @for( movie of results$?.results; track movie.id) {
-            <div class="movie">
-                <h1>{{movie.title}}</h1>
-                <img [src]="getPoster(movie.poster_path)" />
-            
+            <div class="movie__card" (click)="navigateMovie(movie.id)">
+                <img class="movie__image" [src]="getPoster(movie.poster_path)" loading="lazy" />
+                <h1 class="movie__header">{{movie.title}} {{movie.name}}</h1>
+                <!-- needs pipe to transform data to readable String -->
+               <p>Release year {{movie?.release_date}} </p >
+                <div class="movie__rating">
+                    <i class="fa-solid fa-star"></i>
+                    <p>{{movie?.vote_average?.toFixed(1)}}</p>
+                </div>
+                <button class="movie__like-btn"><i class="fa-solid fa-heart"></i></button>
             </div>
-        }
+        } 
     </div>
+}   @loading(minimum 1s) {
+    <app-spinner></app-spinner>
+}
     </div>
 </main>
