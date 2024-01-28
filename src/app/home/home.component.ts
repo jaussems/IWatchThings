@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
   results$?: Movie
   isSelected: Boolean = true;
   toggleControl = new FormControl(false)
+  imageCounter = 0;
+  isLoading = true;
   sortFormGroup = new FormGroup({
     sortingFilter : new FormControl("")
   })
@@ -35,9 +37,14 @@ export class HomeComponent implements OnInit {
     // Wat heb ik nodig ? : Input value die ingetyped wordt en de lijst met huidige films
     // Wat ga ik updaten? Als de lijst met huidige films en hun titel overeenkomen met de zoekterm
     // Op basis van wat ga ik filteren? 
-    //
+  
+    
+
     
     this.inputForm.controls.search.valueChanges.subscribe((searchValue) => {
+     setTimeout(() =>  {
+
+   
      let filtered = this.results$?.results.filter((value) => {
       if(this.isSelected)
         {
@@ -62,8 +69,11 @@ export class HomeComponent implements OnInit {
           this.apiService.getTVSeries().subscribe((value) => this.results$ = value)
         }
         }
-    })
-
+      }, 890)
+    
+      })
+  
+  
   }
 
   formGroup: FormGroup = new FormGroup({
@@ -111,6 +121,11 @@ export class HomeComponent implements OnInit {
   }
 
   getPoster(posterPath: String): String {
+    this.imageCounter++
+    if(this.imageCounter === this.results$?.results.length)
+    {
+      this.isLoading = false
+    }
     return `https://image.tmdb.org/t/p/original/${posterPath}`
   }
 

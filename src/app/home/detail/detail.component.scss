@@ -1,0 +1,57 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.details {
+    @include flex-col;
+
+    justify-content: center;
+    align-items: center;
+    &__image {
+        margin-top: 5rem;
+        height: 20rem;
+        width: 15rem;
+    }
+
+    &__rating {
+        @include flex-row;
+        gap: 0.3rem;
+    }
+
+    &__text {
+        width: 20rem;
+        &__header {
+            font-size: 5rem;
+            color: $primary-color;
+        }
+        &__description {
+            display: flex;
+            align-items: center;
+            height: 15rem;
+            text-align: left;
+        }
+    }
+
+    &__info {
+        @include flex-row;
+        gap: 1rem;
+    }
+
+   
+    .article {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+ 
+    // p {
+    //     text-align: center;
+    // }
+    iframe {
+        padding: 5rem;
+        height: 40rem;
+        width: 80rem;        
+
+    }
+
+
+}

@@ -99,6 +99,12 @@
 
 .movie {
     &__card {
+        &:hover {
+            transform: translateY(-20px);
+            cursor: pointer;
+        }
+
+        
         width: 15rem;
         background: white;
         border-radius: 0.25rem;
@@ -106,6 +112,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        gap: 1rem;
         padding: 1rem;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         transition: 0.5s;
@@ -125,10 +132,7 @@
             overflow: inherit;
         text-overflow: ellipsis;
         }
-        &:hover {
-            transform: translateY(-20px);
-            cursor: pointer;
-        }
+    
     }
 
     &__like-btn {
@@ -136,13 +140,30 @@
         border: 2px solid red;
         border-radius: 1rem;
         padding: 0.5rem;
+        width: 2rem;
         display: flex;
         justify-content: center;
+
+        &:hover {
+            background-color: #D22B2B;
+            transition: 0.3s;
+            cursor: pointer;
+
+            i {
+                color: white;
+                transition: 0.3s
+            }
+        }
     }
 
     &__rating {
         display: flex;
         gap: 0.5rem;        
+    }
+    &__like_container {
+        width: auto;
+        display: flex;
+        justify-content: flex-end;
     }
 }
 
