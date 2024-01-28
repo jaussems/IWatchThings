@@ -42,7 +42,7 @@ export interface MovieDetails {
     originalTitle:       string;
     overview:            string;
     popularity:          number;
-    posterPath:          string;
+    poster_path:          string;
     productionCompanies: ProductionCompany[];
     productionCountries: ProductionCountry[];
     releaseDate:         Date;
@@ -53,7 +53,7 @@ export interface MovieDetails {
     tagline:             string;
     title:               string;
     video:               boolean;
-    voteAverage:         number;
+    vote_average:         number;
     voteCount:           number;
 }
 
@@ -87,4 +87,35 @@ export interface SpokenLanguage {
     englishName: string;
     iso639_1:    string;
     name:        string;
+}
+
+
+export interface Trailer {
+    id:      number;
+    results: TrailerResult[];
+}
+
+export interface TrailerResult {
+    iso639_1:    ISO639_1;
+    iso3166_1:   ISO3166_1;
+    name?:        string;
+    key:         string;
+    site:        Site;
+    size:        number;
+    type:        string;
+    official:    boolean;
+    publishedAt: Date;
+    id?:          string;
+}
+
+export enum ISO3166_1 {
+    Us = "US",
+}
+
+export enum ISO639_1 {
+    En = "en",
+}
+
+export enum Site {
+    YouTube = "YouTube",
 }

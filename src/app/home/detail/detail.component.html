@@ -1,4 +1,27 @@
-<div> 
-<p>{{details$?.title}}</p>
-
+<div class="details"> 
+    <img class="details__image" [src]="getPoster(details$?.poster_path!)" loading="lazy" />
+    
+    <div class="details__text">
+        <p class = details__text__header>{{details$?.title}}</p>
+        <div class="details__info">
+            <div class="details__rating">
+                <i class="fa-solid fa-star"></i>
+                <p class="">{{details$?.vote_average!.toFixed(1)}}</p>
+            </div>
+            @for(genre of details$?.genres!; track genre.id) {
+                <p>{{genre.name}}</p>
+            }
+        </div>
+            <p class="details__text__description">{{details$?.overview}}</p>
+       
+    </div>
+    @if(movieTrailerId)
+    {
+        <iframe #youtube width="100%" height="100%"
+        [src]="setIFrameLink()"
+        frameborder="0" allowfullscreen="" 
+        >
+        </iframe>
+    }
+   
 </div>
