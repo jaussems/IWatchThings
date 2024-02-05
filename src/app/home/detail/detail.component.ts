@@ -13,7 +13,6 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrl: './detail.component.scss'
 })
 export class DetailComponent implements OnInit {
-  //@ViewChild('youtube') youtubeFrame: any 
 details$?: MovieDetails
 
 constructor(

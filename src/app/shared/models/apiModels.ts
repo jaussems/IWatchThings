@@ -15,7 +15,7 @@ export interface Result {
     overview:         string;
     poster_path:       string;
     mediaType:        MediaType;
-    genreIDS:         number[];
+    genre_ids:         number[];
     popularity:       number;
     release_date:      Date;
     video:            boolean;
@@ -118,4 +118,13 @@ export enum ISO639_1 {
 
 export enum Site {
     YouTube = "YouTube",
+}
+
+export interface Genres {
+    genres: Genre[];
+}
+
+export interface Genre {
+    id:   number;
+    name: string;
 }

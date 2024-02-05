@@ -25,7 +25,7 @@
             <div class="movies">
         @for( movie of results$?.results; track movie.id) {
             <div class="movie__card" (click)="navigateMovie(movie.id)">
-                <img class="movie__image" hidden [src]="getPoster(movie.poster_path)" loading="lazy" />
+                <img class="movie__image" [src]="getPoster(movie.poster_path)" loading="lazy" />
                 <h1 class="movie__header">{{movie.title}} {{movie.name}}</h1>
                 <!-- needs pipe to transform data to readable String -->
                <p>Release year {{movie?.release_date}} </p >
