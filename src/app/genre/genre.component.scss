@@ -1,0 +1,87 @@
+
+@import '../../../src/styles/mixins.scss';
+@import '../../../src/styles/variables.scss';
+
+.movies {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    gap: 4rem;
+
+    @include media($sm, $md) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+}
+
+.movie {
+    &__card {
+        &:hover {
+            transform: translateY(-20px);
+            cursor: pointer;
+        }
+
+        
+        width: 15rem;
+        background: white;
+        border-radius: 0.25rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 1rem;
+        padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        transition: 0.5s;
+        &__image {
+            img {
+                height: 20rem;
+                width: 20rem;
+                vertical-align: middle;
+                height: auto;
+                width: auto;
+                max-inline-size: 100%;
+                block-size: auto;
+        
+            }
+        }
+        &__header {
+            overflow: inherit;
+        text-overflow: ellipsis;
+        }
+    
+    }
+
+    &__like-btn {
+        background: transparent;
+        border: 2px solid red;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        width: 2rem;
+        display: flex;
+        justify-content: center;
+
+        &:hover {
+            background-color: #D22B2B;
+            transition: 0.3s;
+            cursor: pointer;
+
+            i {
+                color: white;
+                transition: 0.3s
+            }
+        }
+    }
+
+    &__rating {
+        display: flex;
+        gap: 0.5rem;        
+    }
+    &__like_container {
+        width: auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+}

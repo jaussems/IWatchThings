@@ -1,0 +1,19 @@
+<div class="movies">
+
+    @for( movie of results$?.results; track movie.id) {
+        <div class="movie__card" >
+            <img class="movie__image" [src]="getPoster(movie.poster_path)"  loading="lazy" />
+            <h1 class="movie__header">{{movie.title}} {{movie.name}}</h1>
+            <!-- needs pipe to transform data to readable String -->
+           <p>Release year {{movie?.release_date}} </p >
+            <div class="movie__rating">
+                <i class="fa-solid fa-star"></i>
+                <p>{{movie?.vote_average?.toFixed(1)}}</p>
+                
+            </div>
+            <div class="movie__like_container">
+                <button class="movie__like-btn"><i class="fa-solid fa-heart"></i></button>
+                </div>
+        </div>
+    } 
+</div>

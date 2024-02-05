@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
-import { Movie, MovieDetails, Trailer } from '../models/apiModels';
+import { Genres, Movie, MovieDetails, Trailer } from '../models/apiModels';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,10 @@ export class ApiService {
 
  getFilmTrailers(movie_id: number): Observable<Trailer> {
   return this._httpClient.get<Trailer>(`https://api.themoviedb.org/3/movie/${movie_id}/videos`)
+ }
+
+ getGenres():Observable<Genres> {
+  return this._httpClient.get<Genres>(`https://api.themoviedb.org/3/genre/movie/list`)
  }
   
 }
