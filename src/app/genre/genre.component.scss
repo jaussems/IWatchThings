@@ -2,11 +2,16 @@
 @import '../../../src/styles/mixins.scss';
 @import '../../../src/styles/variables.scss';
 
+
+.genre {
+    padding: 2rem;
+}
+
 .movies {
     display: flex;
     flex-wrap:wrap;
-    justify-content: space-between;
-    gap: 4rem;
+    padding-top: 4rem;
+    gap: 2rem;
 
     @include media($sm, $md) {
         display: flex;
@@ -23,7 +28,7 @@
             cursor: pointer;
         }
 
-        
+        color: $primary-color;
         width: 15rem;
         background: white;
         border-radius: 0.25rem;

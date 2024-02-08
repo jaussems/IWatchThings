@@ -40,9 +40,10 @@ export class GenreComponent implements OnInit {
       }
     )
   }
-
-
  
+  navigateMovie(movieId: Number) {
+    this._router.navigateByUrl(`home/detail/${movieId}`)
+  }
 
   getPoster(posterPath: String): String {
     return `https://image.tmdb.org/t/p/original/${posterPath}`

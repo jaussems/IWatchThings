@@ -5,11 +5,9 @@
             Genres
             @if(dropDownIsShown) {
             <ul  class="nav__genres" (mouseleave)="hideDropDown()"  >
-                
                     @for(genre of genres$?.genres; track genre.id) {
                         <li class="nav__genre" (click)="navigateGenrePage(genre.id)">{{genre.name}}</li>
                         }
-                            
                     </ul>
                 }
         </li>
