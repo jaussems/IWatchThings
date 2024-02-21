@@ -12,6 +12,8 @@
     flex-wrap:wrap;
     padding-top: 4rem;
     gap: 2rem;
+    justify-content: center;
+
 
     @include media($sm, $md) {
         display: flex;

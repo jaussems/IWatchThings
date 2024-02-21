@@ -6,6 +6,7 @@ import { SwitchBtnComponent } from '../shared/components/switch-btn/switch-btn.c
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TabdividerComponent } from '../shared/components/tabdivider/tabdivider.component';
 import { SpinnerComponent } from '../shared/components/spinner/spinner.component';
+import { Genre, MovieGenres, allMovieGenres } from '../genre/genre';
 
 @Component({
   selector: 'app-home',
@@ -34,18 +35,19 @@ export class HomeComponent implements OnInit {
   }
 
   searchChange() {
-    // Wat heb ik nodig ? : Input value die ingetyped wordt en de lijst met huidige films
-    // Wat ga ik updaten? Als de lijst met huidige films en hun titel overeenkomen met de zoekterm
-    // Op basis van wat ga ik filteren? 
-  
-    
-
-    
     this.inputForm.controls.search.valueChanges.subscribe((searchValue) => {
      setTimeout(() =>  {
-
-   
+      const genre = allMovieGenres[searchValue as MovieGenres]
      let filtered = this.results$?.results.filter((value) => {
+      
+      if(genre != null && this.results$)
+      {
+          let filteredByGenre = this.results$?.results.filter((movie) => {
+            return movie.genre_ids.includes(28)
+            })
+
+      }
+
       if(this.isSelected)
         {
           return value.title.toLowerCase().includes(`${searchValue?.toLowerCase()}`)
@@ -70,10 +72,7 @@ export class HomeComponent implements OnInit {
         }
         }
       }, 890)
-    
       })
-  
-  
   }
 
   formGroup: FormGroup = new FormGroup({

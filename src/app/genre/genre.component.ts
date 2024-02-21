@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApiService } from '../shared/service/api.service';
 import { Movie } from '../shared/models/apiModels';
-import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { distinctUntilChanged, map } from 'rxjs';
 
 @Component({
@@ -24,7 +24,9 @@ export class GenreComponent implements OnInit {
       
      
   }
+
   ngOnInit(): void {
+    
     this.route.params.pipe(
       map(params => params["id"]),
       distinctUntilChanged()

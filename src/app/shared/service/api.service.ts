@@ -14,6 +14,7 @@ export class ApiService {
   getMovies(): Observable<Movie> {
     return this._httpClient.get<Movie>(`${this.apiUrl}`);
   }
+  
 
   getMovieDetails(movieId: Number): Observable<MovieDetails> {
     return this._httpClient.get<MovieDetails>(` https://api.themoviedb.org/3/movie/${movieId}`)
