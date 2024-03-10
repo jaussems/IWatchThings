@@ -1,0 +1,23 @@
+.loginform {
+    
+
+    
+    input {
+        height: 2rem;
+
+        &:focus {
+            border: none;
+            background-color: orange;
+            
+        }
+    }
+
+
+    &__form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+}
